@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Sprawdzenie, czy podany rok jest przestępny";
+}
+<div class="text-center">
+    <form method="post">
+        <div>
+            <label for="Year">Rok:</label>
+            <input type="number" id="Year" name="Input.Year" min="1899" max="2022" required />
+            <span asp-validation-for="Input.Year" class="text-danger"></span>
+        </div>
+        <div>
+            <label for="UserName">Imię użytkownika:</label>
+            <input type="text" id="UserName" name="Input.UserName" maxlength="100" required />
+            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+        </div>
+        <button type="submit">Zatwierdź</button>
+    </form>
+    @if (Model.Result != null)
+    {
+        <p class="text-success">@Model.Result</p>
+    }
+    <div>
+        <a asp-page="./SavedInSession">Sprawdź zapisane wyniki</a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@page
+@model SavedInSessionModel
+@{
+    ViewData["Title"] = "Lista sprawdzeń";
+}
+<h2>Lista sprawdzeń:</h2>
+<ul>
+    @foreach (var item in Model.FizzBuzzList)
+    {
+        <li>@item.UserName, @item.Year - @(item.Year % 4 == 0 && (item.Year % 100 != 0 || item.Year % 400 == 0) ? "rok przestępny" : "nie jest rokiem przestępnym")</li>
+    }
+</ul>
